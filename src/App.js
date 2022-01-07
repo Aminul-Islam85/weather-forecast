@@ -13,7 +13,7 @@ function App() {
   const [weatherData, setWeatherData] = React.useState(null)
   const handleOnSearch = async searchText => {
     const cityDetails = await fetch(
-      `http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${searchText}`)
+      `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${searchText}`)
     const cityDetailsJson = await cityDetails.json();
     if (!cityDetailsJson.length) {
       alert('Could not find weather data for the city you provided')
@@ -21,7 +21,7 @@ function App() {
     }
     const locationKey = cityDetailsJson[0].Key
     const weatherDetails = await fetch(
-      `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}`)
+      `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${API_KEY}`)
     const weatherDetailsJson = await weatherDetails.json()
     setCity(cityDetailsJson[0])
     setWeatherData(weatherDetailsJson[0])
