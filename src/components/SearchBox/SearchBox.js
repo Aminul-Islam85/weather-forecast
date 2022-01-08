@@ -6,7 +6,7 @@ const SearchBox = ({ onSearch }) => {
     return (
         <div>
             <input onChange={handleInputChange} />
-            <button onClick={() => onSearch(searchText)}> Search</button>
+            <button onClick={() => onSearch(searchText)}> Show weather info</button>
         </div>
     )
 }
